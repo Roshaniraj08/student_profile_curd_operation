@@ -1,0 +1,71 @@
+Commands to run this Flask + MongoDB app
+=======================================
+
+1. Open Terminal and go to the project folder:
+
+   cd /Users/rahulraman/Desktop/Roshani_codings
+
+
+2. Create and activate a Python virtual environment:
+
+   python3 -m venv .venv
+   source .venv/bin/activate
+
+
+3. Install backend dependencies:
+
+   pip install -r requirements.txt
+
+
+4. Start MongoDB.
+
+   If MongoDB was installed with Homebrew:
+
+   brew services start mongodb-community
+
+   If you want to start MongoDB manually with Homebrew:
+
+   mongod --dbpath /tmp/mongodb-data
+
+   If you are using the downloaded MongoDB folder on this Mac:
+
+   mkdir -p /tmp/mongodb-data
+   /Users/rahulraman/Desktop/mongodb-macos-aarch64--8.3.2/bin/mongod --dbpath /tmp/mongodb-data
+
+   Keep this MongoDB terminal window running.
+
+
+5. Connect the app to MongoDB and start the backend server.
+
+   Open a second Terminal window:
+
+   cd /Users/rahulraman/Desktop/Roshani_codings
+   source .venv/bin/activate
+   export MONGO_URI="mongodb://localhost:27017/"
+   export MONGO_DB_NAME="student_portal"
+   python app.py
+
+
+6. Open the app in your browser:
+
+   http://127.0.0.1:5001
+
+
+7. Optional MongoDB connection check:
+
+   mongosh mongodb://localhost:27017/student_portal
+
+   Then run:
+
+   show collections
+   db.students.find()
+
+
+Notes
+-----
+- app.py uses MONGO_URI and MONGO_DB_NAME from the environment.
+- If those variables are not set, the app automatically uses:
+  MONGO_URI=mongodb://localhost:27017/
+  MONGO_DB_NAME=student_portal
+- Student records are stored in the MongoDB collection:
+  student_portal.students
