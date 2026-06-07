@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="panel">
+      <div class="section-header">
+        <p class="eyebrow">Student Portal</p>
+        <h1>Create Student Profile</h1>
+      </div>
+
+      <form id="studentForm" class="student-form">
+        <label>
+          Name
+          <input type="text" id="name" name="name" placeholder="Enter student name" required>
+        </label>
+
+        <label>
+          Roll No.
+          <input type="text" id="roll_no" name="roll_no" placeholder="Enter roll number" required>
+        </label>
+
+        <label>
+          Mobile
+          <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" required>
+        </label>
+
+        <label>
+          Email
+          <input type="email" id="email" name="email" placeholder="Enter email address" required>
+        </label>
+
+        <label>
+          Class
+          <input type="text" id="student_class" name="student_class" placeholder="Enter class" required>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" id="submitButton">Submit</button>
+          <button type="button" id="cancelEditButton" class="secondary hidden">Cancel Edit</button>
+        </div>
+      </form>
+
+      <p id="formMessage" class="message"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-header">
+        <p class="eyebrow">Search</p>
+        <h2>Fetch Student Details</h2>
+      </div>
+
+      <form id="searchForm" class="search-form">
+        <label>
+          Roll No.
+          <input type="text" id="searchRollNo" placeholder="Enter roll number" required>
+        </label>
+        <button type="submit">Fetch</button>
+      </form>
+
+      <p id="searchMessage" class="message"></p>
+
+      <article id="studentCard" class="student-card hidden">
+        <dl>
+          <div>
+            <dt>Name</dt>
+            <dd id="cardName"></dd>
+          </div>
+          <div>
+            <dt>Roll No.</dt>
+            <dd id="cardRollNo"></dd>
+          </div>
+          <div>
+            <dt>Mobile</dt>
+            <dd id="cardMobile"></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd id="cardEmail"></dd>
+          </div>
+          <div>
+            <dt>Class</dt>
+            <dd id="cardClass"></dd>
+          </div>
+        </dl>
+
+        <div class="card-actions">
+          <button type="button" id="editButton" class="secondary">Edit</button>
+          <button type="button" id="deleteButton" class="danger">Delete</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
